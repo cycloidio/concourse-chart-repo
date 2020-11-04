@@ -21,7 +21,7 @@ image: concourse/concourse
 ##      of `concourse/concourse`.
 ## Ref: https://hub.docker.com/r/concourse/concourse/tags/
 ##
-imageTag: "6.6.0"
+imageTag: "6.7.0"
 
 ## Specific image digest to use in place of a tag.
 ## Ref: https://kubernetes.io/docs/concepts/configuration/overview/#container-images
@@ -267,6 +267,16 @@ concourse:
     ## configured a webhook token
     ##
     resourceWithWebhookCheckingInterval: 1m
+
+    ## Configuration file for specifying defaults for base resource types
+    ## Ref: https://concourse-ci.org/concourse-web.html#resource-defaults
+    ## Example:
+    ## baseResourceTypeDefaults: |
+    ##   registry-image:
+    ##     registry_mirror:
+    ##       host: https://registry.mirror.example.com
+    ##
+    baseResourceTypeDefaults: ""
 
     ## Compression to use when streaming artifacts (values: zstd, gzip)
     ##
@@ -1676,6 +1686,14 @@ web:
   ##   command: ['sh', '-c', 'echo Hello && sleep 3600']
   ##
   extraInitContainers: []
+
+  ## Enable or disable the process namespace sharing for the web nodes.
+  ## This allows signaling the concourse process from a sidecar container.
+  ## eg.: signal concourse web to reload the team authorized keys file.
+  ##
+  ## Ref: https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/
+  ##
+  shareProcessNamespace: false
 
   ## Configures the liveness probe used to determine if the Web component is up.
   ## ps.: if you're upgrading Concourse from one version  to another, the probe will
