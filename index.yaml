@@ -2,6 +2,39 @@ apiVersion: v1
 entries:
   concourse:
   - apiVersion: v2
+    appVersion: 6.7.0
+    created: "2020-11-04T13:17:25.842707562Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.2.0
+    description: Concourse is a simple and scalable CI system.
+    digest: 1d844d0d35e2248c7160318cd57e9700e4d3a701f34e59c3d0ef16eae9592467
+    home: https://concourse-ci.org/
+    icon: https://avatars1.githubusercontent.com/u/7809479
+    keywords:
+    - ci
+    - concourse
+    - concourse.ci
+    maintainers:
+    - email: cscosta@pivotal.io
+      name: cirocosta
+    - email: will@autonomic.ai
+      name: william-tran
+    - email: byoussef@pivotal.io
+      name: YoussB
+    - email: tsilva@pivotal.io
+      name: taylorsilva
+    name: concourse
+    sources:
+    - https://github.com/concourse/concourse
+    - https://github.com/helm/charts
+    type: application
+    urls:
+    - https://github.com/cycloidio/concourse-chart-repo/releases/download/concourse-14.1.0-cycloid/concourse-14.1.0-cycloid.tgz
+    version: 14.1.0-cycloid
+  - apiVersion: v2
     appVersion: 6.6.0
     created: "2020-10-29T13:46:29.086269013Z"
     dependencies:
